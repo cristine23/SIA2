@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Formstack Admin</title>
+  <style>
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 10px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    .error-message {
+      color: red;
+      font-size: 14px;
+      margin-top: 5px;
+      display: none;
+    }
+
+     .form-control {
+      width: 40%;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>Form Registration</h1>
+
+  <form>
+    <div class="form-group">
+      <label for="firstname">First Name:</label>
+      <input type="text" id="firstname" name="firstname" class="form-control" />
+      <span class="error-message" id="firstname-error"></span>
+    </div>
+
+    <div class="form-group">
+      <label for="lastname">Last Name:</label>
+      <input type="text" id="lastname" name="lastname" class="form-control" />
+      <span class="error-message" id="lastname-error"></span>
+    </div>
+    
+    <div class="form-group">
+        <label for="workemail">Work Email:</label>
+        <input type="email" id="workemail" name="workemail" class="form-control" />
+        <span class="error-message" id="workemail-error"></span>
+    </div>
+    
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password"   id="password" name="password" class="form-control" />
+        <span class="error-message" id="password-error"></span>
+    </div>
+
+    <div class="form-group">
+      <label for="orgname">Organization Name:</label>
+      <input type="text" id="orgname" name="orgname" class="form-control" />
+      <span class="error-message" id="orgname-error"></span>
+    </div>
+
+   <div class="form-group">
+    <label for="numberOfEmployees">Organization Size</label>
+    <select name="numberOfEmployees" class="form-control">
+     <option>Select</option>   
+    <option>5,000+ employees</option>
+    <option>1,000-5,000 employees</option>
+    <option>500-999 employees</option>
+    <option>100-499 employees</option>
+    <option>20-99 employees</option>
+    <option>1-19 employees </option></select></div>
+
+    <div class="form-group">
+      <label for="industry">Industry</label>
+      <select name="industry" class="form-control">
+        <option>Select</option>  
+        <option>Healthcare &amp; Biotech</option>
+        <option>Education</option>
+        <option>Software &amp; Technology</option>
+        <option>Consulting, Professional &amp; Business Services</option>
+        <option>Banking/Insurance/Financial Services</option>
+        <option>Government</option>
+        <option>Legal</option>
+        <option>Energy/Utilities</option>
+        <option>Not For Profit</option>
+        <option>Real Estate</option>
+        <option>Other</option></select>
+    </div>
+   
+   <div class="form-group">
+        <label for="phonenumber">Phone Number:</label>
+        <input type="number" id="phonenumber" name="phonenumber" class="form-control" />
+        <span class="error-message" id="phonenumber-error"></span>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    const firstnameInput = document.getElementById("firstname");
+    const lastnameInput = document.getElementById("lastname");
+    const workemailInput = document.getElementById("workemail");
+    const passwordInput = document.getElementById("password");
+    const orgnameInput = document.getElementById("orgname");
+    const phonenumberInput = document.getElementById("phonenumber");
+    const firstnameError = document.getElementById("firstname-error");
+    const lastnameError = document.getElementById("lastname-error");
+    const workemailError = document.getElementById("workemail-error");
+    const passwordError = document.getElementById("password-error");
+    const orgnameError = document.getElementById("orgname-error");
+    const phonenumberError = document.getElementById("phonenumber-error");
+
+    firstnameInput.addEventListener("input",function(){
+      if (firstnameInput.value.length < 8){
+        firstnameError.textContent = "firstname must be at least 8 characters";
+        firstnameError.style.display = "block";
+      } else {
+        firstnameError.style.display = "none";
+      }
+    });
+
+    lastnameInput.addEventListener("input", function(){
+      if (lastnameInput.value.length < 8){
+        lastnameError.textContent = "lastname must be at least 8 characters";
+        lastnameError.style.display = "block";
+      } else {
+        lastnameError.style.display = "none";
+      }
+    });
+    
+    workemailInput.addEventListener("input", function(){
+    if (workemailInput.value.length < 20) {
+      workemailError.textContent = "invalid email address";
+        workemailError.style.display = "block";
+       } else {
+        workemailError.style.display = "none";
+        }
+    });
+    
+    passwordInput.addEventListener("input", function(){
+    if (passwordInput.value.length < 8) {
+      passwordError.textContent = "password minimum 8 characters 1 number and symbols";
+        passwordError.style.display = "block";
+       } else {
+        passwordError.style.display = "none";
+       }
+    });
+
+    orgnameInput.addEventListener("input",function(){
+      if (orgnameInput.value.length < 8){
+        orgnameError.textContent = "Organization name must be at least 8 characters";
+       orgnameError.style.display = "block";
+      } else {
+        orgnameError.style.display = "none";
+      }
+    });
+
+    phonenumberInput.addEventListener("input", function(){
+    if (phonenumberInput.value.length < 11) {
+      phonenumberError.textContent = "Invalid phone number";
+        phonenumberError.style.display = "block";
+       } else {
+        phonenumberError.style.display = "none";
+       }
+    });
+  </script>
+
+</body>
+</html>
